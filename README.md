@@ -1,4 +1,4 @@
-# NINA Histogram Plugin
+# Histogram Inspector
 
 Project setup is in progress.
 

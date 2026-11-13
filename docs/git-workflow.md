@@ -19,7 +19,7 @@ gitignore options unchecked because the local repository already has initial fil
 Copy its HTTPS clone URL and replace the example URL below:
 
 ```powershell
-git remote add origin https://github.com/YOUR-ACCOUNT/NINA-Histogram-Plugin.git
+git remote add origin https://github.com/Navy-Chief/Histogram-Inspector.git
 git push -u origin main
 ```
 
@@ -63,8 +63,8 @@ squash merge can require a separate check before deleting the branch.
 Run from the parent folder where you want a new project copy:
 
 ```powershell
-git clone https://github.com/YOUR-ACCOUNT/NINA-Histogram-Plugin.git
-cd NINA-Histogram-Plugin
+git clone https://github.com/Navy-Chief/Histogram-Inspector.git
+cd Histogram-Inspector
 git config --local user.name "Your Name"
 git config --local user.email "your-email@example.com"
 ```

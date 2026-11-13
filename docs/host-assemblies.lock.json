@@ -1,0 +1,57 @@
+[
+  {
+    "file": "NINA.Core.dll",
+    "version": "3.2.0.9001",
+    "sha256": "BA00F5FFEB16FCDFD5AE445805DBC8C11C0B1B61AA2618FE7EC528DB21372820"
+  },
+  {
+    "file": "NINA.Equipment.dll",
+    "version": "3.2.0.9001",
+    "sha256": "791EF0E33281021A8B6616C882625DCB173D6E5C50B9095CEF205062D1898ED2"
+  },
+  {
+    "file": "NINA.Image.dll",
+    "version": "3.2.0.9001",
+    "sha256": "663E9A8FC7B889ED52889B3785BFD4A9809DDA4C20DF9C8A60693A41A7B7AEBC"
+  },
+  {
+    "file": "NINA.Plugin.dll",
+    "version": "3.2.0.9001",
+    "sha256": "DFA6942D1EE6A01907F6F63B5C804C9A19119103A6D1D29422090EAA1A93B283"
+  },
+  {
+    "file": "System.ComponentModel.Composition.dll",
+    "version": "8.0.0.0",
+    "sha256": "82260FEF3A01A429AB525A75765F263CB54C5FD01ABB87A0A4DAB15BFAE6FC37"
+  },
+  {
+    "file": "System.Text.Json.dll",
+    "version": "9.0.0.0",
+    "sha256": "F152A01ACF7DC4239313908D2E6315EB4BCF67F95D45F64EEC1BBFEB04B923F6"
+  },
+  {
+    "file": "System.Text.Encodings.Web.dll",
+    "version": "9.0.0.0",
+    "sha256": "B2CE8FA6CDF16A0DF544C0560857551A0B4E87A73A12EC5625E399EB3C890D3E"
+  },
+  {
+    "file": "OxyPlot.dll",
+    "version": "2.2.0.0",
+    "sha256": "1D3E6BD6C32A42C3303C8B2513D3EEFC67A41549A58D84BEAA104755A9BBC661"
+  },
+  {
+    "file": "OxyPlot.Wpf.dll",
+    "version": "2.2.0.0",
+    "sha256": "6E9BE2D04A97E2AE31E4719D877CE2C6FABC9937A4838DBE63CE562742E20567"
+  },
+  {
+    "file": "OxyPlot.Wpf.Shared.dll",
+    "version": "2.2.0.0",
+    "sha256": "2AC79DECC3BD2148E22D750E3DDC142F2E19DFD87E869CCFC940B81039943296"
+  },
+  {
+    "file": "NINA.Profile.dll",
+    "version": "3.2.0.9001",
+    "sha256": "6DA1114026C0D6C9FBC8110F4D1CBEEB093C4B4F35F3448050E1A3396A5F40C3"
+  }
+]

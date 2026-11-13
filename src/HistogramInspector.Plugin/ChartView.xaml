@@ -1,0 +1,30 @@
+<UserControl x:Class="HistogramInspector.Plugin.ChartView"
+ xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+ xmlns:oxy="http://oxyplot.org/wpf"
+ Background="{DynamicResource BackgroundBrush}" Foreground="{DynamicResource PrimaryBrush}">
+ <StackPanel Margin="8">
+  <WrapPanel Margin="0,0,0,8">
+   <TextBlock Text="X range " VerticalAlignment="Center" />
+   <ComboBox ItemsSource="{Binding ZoomModes}" SelectedItem="{Binding Zoom}" MinWidth="95" Margin="0,0,12,0" />
+   <StackPanel Orientation="Horizontal" Margin="0,0,12,0">
+    <TextBlock Text="Custom Range min/max ADU " VerticalAlignment="Center" />
+    <TextBox Text="{Binding CustomMinimum, UpdateSourceTrigger=PropertyChanged}" Width="70" />
+    <TextBlock Text=" / " VerticalAlignment="Center" />
+    <TextBox Text="{Binding CustomMaximum, UpdateSourceTrigger=PropertyChanged}" Width="70" />
+   </StackPanel>
+   <StackPanel Orientation="Horizontal" Margin="0,3,12,0"><CheckBox AutomationProperties.Name="Include zero (Auto)" IsChecked="{Binding IncludeZero}" /><TextBlock Text="Include zero (Auto)" VerticalAlignment="Center" Margin="6,0,0,0" /></StackPanel>
+   <StackPanel Orientation="Horizontal" Margin="0,3,12,0"><CheckBox AutomationProperties.Name="Log Y" IsChecked="{Binding Logarithmic}" /><TextBlock Text="Log Y" VerticalAlignment="Center" Margin="6,0,0,0" /></StackPanel>
+   <StackPanel Orientation="Horizontal" Margin="0,3,12,0"><CheckBox AutomationProperties.Name="Percentage (otherwise counts)" IsChecked="{Binding Percentage}" /><TextBlock Text="Percentage (otherwise counts)" VerticalAlignment="Center" Margin="6,0,0,0" /></StackPanel>
+  </WrapPanel>
+  <WrapPanel Margin="0,0,0,8">
+   <StackPanel Orientation="Horizontal" Margin="0,3,12,0"><CheckBox AutomationProperties.Name="CFA RGB" IsChecked="{Binding Rgb}" /><TextBlock Text="CFA RGB" VerticalAlignment="Center" Margin="6,0,0,0" /></StackPanel>
+   <StackPanel Orientation="Horizontal" Margin="0,3,12,0"><CheckBox AutomationProperties.Name="Red" IsChecked="{Binding Red}" /><TextBlock Text="Red" VerticalAlignment="Center" Margin="6,0,0,0" /></StackPanel>
+   <StackPanel Orientation="Horizontal" Margin="0,3,12,0"><CheckBox AutomationProperties.Name="Green (both sites)" IsChecked="{Binding Green}" /><TextBlock Text="Green (both sites)" VerticalAlignment="Center" Margin="6,0,0,0" /></StackPanel>
+   <StackPanel Orientation="Horizontal" Margin="0,3,12,0"><CheckBox AutomationProperties.Name="Blue" IsChecked="{Binding Blue}" /><TextBlock Text="Blue" VerticalAlignment="Center" Margin="6,0,0,0" /></StackPanel>
+  </WrapPanel>
+  <oxy:PlotView x:Name="HistogramPlot" Model="{Binding Model}" Height="310" MinWidth="100" SizeChanged="PlotSizeChanged"
+   Background="{Binding Background, RelativeSource={RelativeSource AncestorType=UserControl}}"
+   ToolTip="Click near a curve for the represented ADU interval, exact count and percentage of that channel. Use Custom controls for zoom; native axis pan/zoom is disabled." />
+ </StackPanel>
+</UserControl>

@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows</TargetFramework><UseWPF>true</UseWPF>
+    <Nullable>enable</Nullable><ImplicitUsings>enable</ImplicitUsings>
+    <AssemblyName>HistogramInspector</AssemblyName><AssemblyTitle>Histogram Inspector</AssemblyTitle>
+    <Company>Navy-Chief</Company><Version>0.3.8</Version><FileVersion>0.3.8.0</FileVersion>
+    <Description>Interactive raw histogram and CFA statistics.</Description>
+    <NinaPath Condition="'$(NinaPath)' == ''">C:\Program Files\N.I.N.A. - Nighttime Imaging 'N' Astronomy</NinaPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="OxyPlot"><HintPath>$(NinaPath)/OxyPlot.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="OxyPlot.Wpf"><HintPath>$(NinaPath)/OxyPlot.Wpf.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="OxyPlot.Wpf.Shared"><HintPath>$(NinaPath)/OxyPlot.Wpf.Shared.dll</HintPath><Private>false</Private></Reference>
+    <ProjectReference Include="../HistogramInspector.Core/HistogramInspector.Core.csproj" />
+    <Reference Include="NINA.Core"><HintPath>$(NinaPath)/NINA.Core.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="NINA.Profile"><HintPath>$(NinaPath)/NINA.Profile.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="NINA.Equipment"><HintPath>$(NinaPath)/NINA.Equipment.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="NINA.Image"><HintPath>$(NinaPath)/NINA.Image.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="NINA.Plugin"><HintPath>$(NinaPath)/NINA.Plugin.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="System.ComponentModel.Composition"><HintPath>$(NinaPath)/System.ComponentModel.Composition.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="System.Text.Json"><HintPath>$(NinaPath)/System.Text.Json.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="System.Text.Encodings.Web"><HintPath>$(NinaPath)/System.Text.Encodings.Web.dll</HintPath><Private>false</Private></Reference>
+  </ItemGroup>
+  <Target Name="CheckHostVersion" BeforeTargets="ResolveReferences">
+    <GetAssemblyIdentity AssemblyFiles="$(NinaPath)/NINA.Plugin.dll"><Output TaskParameter="Assemblies" ItemName="HostAssembly" /></GetAssemblyIdentity>
+    <Error Condition="'%(HostAssembly.Version)' != '3.2.0.9001'" Text="Build against the pinned NINA 3.2.0.9001 installation." />
+  </Target>
+</Project>

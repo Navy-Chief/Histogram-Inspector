@@ -1,0 +1,66 @@
+<ResourceDictionary x:Class="HistogramInspector.Plugin.Templates"
+ xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+ xmlns:local="clr-namespace:HistogramInspector.Plugin">
+ <DataTemplate x:Key="Histogram Inspector_Options">
+  <StackPanel Margin="12">
+   <TextBlock Text="Histogram Inspector" FontSize="18" FontWeight="Bold" />
+   <TextBlock Margin="0,8,0,0" TextWrapping="Wrap"
+    Text="Interactive raw histogram. Open Imaging and enable the Histogram Inspector information panel." />
+   <TextBlock Margin="0,8,0,0" TextWrapping="Wrap"
+    Text="Auto/Custom/Full Scale, CFA RGB, counts/percentage, linear/log Y and manual warning thresholds. Full Scale follows configured/per-image data depth. Comparisons and saved preferences are planned for a later release." />
+  </StackPanel>
+ </DataTemplate>
+ <DataTemplate DataType="{x:Type local:InspectorPanel}">
+  <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+   <StackPanel>
+    <local:ChartView DataContext="{Binding Chart}" />
+    <Expander Header="Detailed statistics" Margin="8" IsExpanded="True">
+     <ItemsControl Margin="8" ItemsSource="{Binding Chart.Details}">
+      <ItemsControl.ItemTemplate>
+       <DataTemplate>
+        <StackPanel Margin="0,0,0,14">
+         <TextBlock Text="{Binding Name}" FontWeight="SemiBold" Margin="0,0,0,6" />
+         <ItemsControl ItemsSource="{Binding Values}">
+          <ItemsControl.ItemsPanel><ItemsPanelTemplate><UniformGrid Columns="2" /></ItemsPanelTemplate></ItemsControl.ItemsPanel>
+          <ItemsControl.ItemTemplate>
+           <DataTemplate>
+            <Grid Margin="0,2,16,2">
+             <Grid.ColumnDefinitions><ColumnDefinition Width="100" /><ColumnDefinition Width="*" /></Grid.ColumnDefinitions>
+             <TextBlock Text="{Binding Label}" />
+             <TextBlock Grid.Column="1" Text="{Binding Value}" TextWrapping="Wrap" />
+            </Grid>
+           </DataTemplate>
+          </ItemsControl.ItemTemplate>
+         </ItemsControl>
+        </StackPanel>
+       </DataTemplate>
+      </ItemsControl.ItemTemplate>
+     </ItemsControl>
+    </Expander>
+    <StackPanel Margin="8" DataContext="{Binding Chart}">
+  <Expander Header="Configure low/high warning thresholds" Margin="0,4,0,4">
+   <StackPanel>
+    <WrapPanel Margin="0,8,0,6">
+     <StackPanel Orientation="Horizontal" Margin="0,3,5,0"><CheckBox AutomationProperties.Name="Low threshold" IsChecked="{Binding LowEnabled}" /><TextBlock Text="Low ≤ ADU" VerticalAlignment="Center" Margin="6,0,0,0" /></StackPanel>
+     <TextBox Text="{Binding LowThreshold, UpdateSourceTrigger=PropertyChanged}" Width="65" Margin="0,0,8,0" />
+     <TextBlock Text="Trigger ≥ " VerticalAlignment="Center" />
+     <TextBox Text="{Binding LowTrigger, UpdateSourceTrigger=PropertyChanged}" Width="65" Margin="0,0,12,0" />
+     <StackPanel Orientation="Horizontal" Margin="0,3,5,0"><CheckBox AutomationProperties.Name="High threshold" IsChecked="{Binding HighEnabled}" /><TextBlock Text="High ≥ ADU" VerticalAlignment="Center" Margin="6,0,0,0" /></StackPanel>
+     <TextBox Text="{Binding HighThreshold, UpdateSourceTrigger=PropertyChanged}" Width="65" Margin="0,0,8,0" />
+     <TextBlock Text="Trigger ≥ " VerticalAlignment="Center" />
+     <TextBox Text="{Binding HighTrigger, UpdateSourceTrigger=PropertyChanged}" Width="65" />
+    </WrapPanel>
+    <StackPanel Orientation="Horizontal"><CheckBox AutomationProperties.Name="Percentage trigger unit" IsChecked="{Binding TriggerPercentage}" /><TextBlock Text="Trigger unit: percentage (otherwise sample count)" VerticalAlignment="Center" Margin="6,0,0,0" /></StackPanel>
+    <TextBlock Text="Percentages use each channel's own pixel population. Boundaries are inclusive. Warnings describe digital codes, not physical full-well saturation." TextWrapping="Wrap" Margin="0,6,0,0" />
+   </StackPanel>
+  </Expander>
+  <TextBlock Text="{Binding ThresholdText}" TextWrapping="Wrap" />
+    </StackPanel>
+    <Expander Header="Raw image and capture context" Margin="8">
+     <TextBlock Margin="8" Text="{Binding Diagnostics}" TextWrapping="Wrap" />
+    </Expander>
+   </StackPanel>
+  </ScrollViewer>
+ </DataTemplate>
+</ResourceDictionary>

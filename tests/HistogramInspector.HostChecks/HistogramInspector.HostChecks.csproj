@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+ <PropertyGroup>
+  <OutputType>Exe</OutputType><TargetFramework>net8.0-windows</TargetFramework><UseWPF>true</UseWPF>
+  <ImplicitUsings>enable</ImplicitUsings><Nullable>enable</Nullable>
+  <NinaPath Condition="'$(NinaPath)' == ''">C:\Program Files\N.I.N.A. - Nighttime Imaging 'N' Astronomy</NinaPath>
+ </PropertyGroup>
+ <ItemGroup>
+  <Reference Include="OxyPlot"><HintPath>$(NinaPath)/OxyPlot.dll</HintPath><Private>false</Private></Reference>
+  <Reference Include="OxyPlot.Wpf"><HintPath>$(NinaPath)/OxyPlot.Wpf.dll</HintPath><Private>false</Private></Reference>
+  <Reference Include="OxyPlot.Wpf.Shared"><HintPath>$(NinaPath)/OxyPlot.Wpf.Shared.dll</HintPath><Private>false</Private></Reference>
+  <Reference Include="NINA.Core"><HintPath>$(NinaPath)/NINA.Core.dll</HintPath><Private>false</Private></Reference>
+  <Reference Include="NINA.Profile"><HintPath>$(NinaPath)/NINA.Profile.dll</HintPath><Private>false</Private></Reference>
+  <ProjectReference Include="../../src/HistogramInspector.Plugin/HistogramInspector.Plugin.csproj" />
+  <Reference Include="NINA.Equipment"><HintPath>$(NinaPath)/NINA.Equipment.dll</HintPath><Private>false</Private></Reference>
+  <Reference Include="NINA.Image"><HintPath>$(NinaPath)/NINA.Image.dll</HintPath><Private>false</Private></Reference>
+  <Reference Include="NINA.Plugin"><HintPath>$(NinaPath)/NINA.Plugin.dll</HintPath><Private>false</Private></Reference>
+  <Reference Include="System.Text.Json"><HintPath>$(NinaPath)/System.Text.Json.dll</HintPath><Private>false</Private></Reference>
+  <Reference Include="System.Text.Encodings.Web"><HintPath>$(NinaPath)/System.Text.Encodings.Web.dll</HintPath><Private>false</Private></Reference>
+  <Reference Include="System.ComponentModel.Composition"><HintPath>$(NinaPath)/System.ComponentModel.Composition.dll</HintPath><Private>false</Private></Reference>
+ </ItemGroup>
+</Project>

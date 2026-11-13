@@ -1,7 +1,15 @@
 # Build output
+.tools/
+.upstream/
 **/bin/
 **/obj/
 artifacts/
+
+# Local camera samples can contain private capture/location metadata.
+/tests/*.fits
+/tests/*.fit
+/tests/*.fts
+/tests/*.xisf
 
 # Local IDE settings
 .vs/

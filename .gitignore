@@ -1,0 +1,21 @@
+# Build output
+**/bin/
+**/obj/
+artifacts/
+
+# Local IDE settings
+.vs/
+.idea/
+*.user
+*.suo
+
+# Local secrets
+.env
+.env.*
+!.env.example
+*.pfx
+*.p12
+
+# Operating system files
+Thumbs.db
+.DS_Store
